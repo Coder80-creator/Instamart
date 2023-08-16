@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="chat.css">
+
+  <title></title>
+</head>
+
+<body>
+  <div id="logo_insta" class="instamart_logo"></div>
+  <!--<div class="main_name">
+    <p>Instamart</p>
+    </div>-->
+<i class="material-icons like" style="font-size: 30px;border-radius: 80px;color:red;">favorite</i>
+<div class="chat"></div>
+<div class="main">
+  <!--<h1 class="heading">Luna</h1>-->
+  <div class="luna"></div>
+  <textarea id="prompt" maxlength="200" class="prompt" onkeyup="word_count()" onclick="clear_prompt();"></textarea>
+  <h6 id="word_count">0/200</h6>
+  
+  
+  <p class="on_off">AI OFF</p>
+ <div class="power-switch">
+  <input type="checkbox" id="checkbox" onclick="off()"/>
+  <div class="button">
+    <svg class="power-off">
+      <use xlink:href="#line" class="line" />
+      <use xlink:href="#circle" class="circle" />
+    </svg>
+    <svg class="power-on">
+      <use xlink:href="#line" class="line" />
+      <use xlink:href="#circle" class="circle" />
+    </svg>
+  </div>
+</div>
+
+<!-- SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
+    <line x1="75" y1="34" x2="75" y2="58"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="circle">
+    <circle cx="75" cy="80" r="35"/>
+  </symbol>
+</svg>
+
+
+
+  
+  
+  <div id="product_404" class="product_404"></div>
+  <div id="suggestions">
+    <p><span>S</span>hoes</p>
+    <p><span>S</span>hoes for men</p>
+    <p><span>S</span>hoes for Women</p>
+  </div>
+
+</div>
+
+<script src="chat.js"></script>
+</body>
+
+</html>
