@@ -1,0 +1,358 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+body::backdrop{
+  background-color: white;
+  overflow: hidden;
+}
+body{
+  overflow: hidden;
+  height: 100vh;
+}
+.instamart_logo{
+  /*background-image: url("light_logo.png");*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -5%;
+  margin-left: 2%;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(15,17,31,255);
+}
+@media (prefers-color-scheme: dark) {
+  .instamart_logo{
+    background-color: rgba(22,22,22,255);
+   /*background-color: rgba(15,17,31,255);*/
+   background-image: url("../dark_logo.png");
+  }
+  .power-switch .button:after{
+    background: radial-gradient(circle closest-side, var(--color-invert), transparent);
+
+  }
+  .power-switch {
+  --color-invert: white;
+  }
+  *{
+    color: white;
+  }
+  body{
+    background-color: rgb(22,22,22);
+    color: white;
+  }
+  .product_404{
+    background: url("https://github.com/Coder80-creator/Instamart/blob/main/src/dark_product_404.png?raw=true");
+  }
+  .prompt{
+    background-color: rgb(32,32,32);
+  }
+}
+
+
+@media (prefers-color-scheme: light) {
+  .instamart_logo{
+    background-color: rgba(255,255,255,255);
+   background-image: url("../light_logo.png");
+  }
+  *{
+    color: black
+  }
+    .power-switch {
+  --color-invert: black;
+  }
+  .prompt{
+    color: lightgrey;
+    font-weight: bolder;
+  }
+  .product_404{
+    background: url("https://github.com/Coder80-creator/Instamart/blob/main/src/light_product_404.png?raw=true");
+  }
+}
+.light{
+   background-color: rgba(255,255,255,255);
+   background-image: url("../light_logo.png");
+}
+.dark{
+   background-color: rgba(22,22,22,255);
+   /*background-color: rgba(15,17,31,255);*/
+   background-image: url("../dark_logo.png");
+}
+.chat{
+  background-image: url("https://github.com/Coder80-creator/Instamart/blob/main/logo/chat.png?raw=true");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -5%;
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  right: 5%;
+  top: 6.6%;
+}
+.like{
+  position: absolute;
+  right: 15%;
+  top:4%;
+}
+.main{
+  border-top: 0px solid grey;
+  margin-top: -12%;
+  height: 93vh;
+  position: relative;
+}
+.heading{
+  justify-content: center;
+  margin-top: 2%;
+  display: flex;
+}
+.luna{
+  width: 30%;
+  margin-left: 35%;
+  height: 100px;
+  background: url("https://github.com/Coder80-creator/Instamart/blob/main/src/luna1.png?raw=true");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.prompt{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  min-width: 75%;
+  max-width: 75%;
+  min-height: 100px;
+  max-height: 100px;
+  margin-left: 7.5%;
+  padding: 5%;
+  margin-top: 15%;
+  outline: none;
+  border: none;
+  color: lightgrey;
+  border-radius: 5px;
+}
+.product_404{
+  width: 100%;
+  height: 300px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  bottom: -100px;
+}
+#word_count{
+  margin-left: 10%;
+  margin-top: 10px;
+  margin-left: 80%;
+  position: absolute;
+}
+
+
+
+.power-switch {
+  /*--color-invert: black;*/
+  --width: 150px;
+  --height: 150px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  height: var(--height);
+}
+.power-switch .button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.power-switch .button:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  transform: perspective(1px) translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.power-switch .button .power-on,
+.power-switch .button .power-off {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  fill: none;
+  stroke: var(--color-invert);
+  stroke-width: 8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.power-switch .button .power-on .line,
+.power-switch .button .power-off .line {
+  opacity: 0.2;
+}
+.power-switch .button .power-on .circle,
+.power-switch .button .power-off .circle {
+  opacity: 0.2;
+  transform: rotate(-58deg);
+  transform-origin: center 80px;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 40;
+}
+.power-switch .button .power-on {
+  filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.8));
+}
+.power-switch .button .power-on .line {
+  opacity: 0;
+  transition: opacity 0.3s ease 1s;
+}
+.power-switch .button .power-on .circle {
+  opacity: 1;
+  stroke-dashoffset: 220;
+  transition: transform 0s ease, stroke-dashoffset 1s ease 0s;
+}
+.power-switch input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0;
+}
+.power-switch input:checked + .button:after {
+  opacity: 0.15;
+  transform: scale(2) perspective(1px) translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.power-switch input:checked + .button .power-on,
+.power-switch input:checked + .button .power-off {
+  -webkit-animation: click-animation 0.3s ease forwards;
+          animation: click-animation 0.3s ease forwards;
+  transform: scale(1);
+}
+.power-switch input:checked + .button .power-on .line,
+.power-switch input:checked + .button .power-off .line {
+  -webkit-animation: line-animation 0.8s ease-in forwards;
+          animation: line-animation 0.8s ease-in forwards;
+}
+.power-switch input:checked + .button .power-on .circle,
+.power-switch input:checked + .button .power-off .circle {
+  transform: rotate(302deg);
+}
+.power-switch input:checked + .button .power-on .line {
+  opacity: 1;
+  transition: opacity 0.05s ease-in 0.55s;
+}
+.power-switch input:checked + .button .power-on .circle {
+  transform: rotate(302deg);
+  stroke-dashoffset: 40;
+  transition: transform 0.4s ease 0.2s, stroke-dashoffset 0.4s ease 0.2s;
+}
+
+@-webkit-keyframes line-animation {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(10px);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  60% {
+    transform: translateY(-25px);
+  }
+  85% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes line-animation {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(10px);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  60% {
+    transform: translateY(-25px);
+  }
+  85% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes click-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes click-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.power-switch{
+  zoom: 25%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  margin-top: -180px;
+  margin-left:82%;
+}
+.prompt{
+  line-height: 180%;
+}
+.on_off{
+  display: none;
+  font-size: 10px;
+  margin-top: 15px;
+  margin-left: 30px;
+  position: absolute;
+  
+}
+
+
+.product_404{
+  display: noneo;
+}
+#suggestions>p{
+  background-color: redi;
+  padding: 10px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  color: rgb(150,150,150);
+  /*font-size: 10px;*/
+}
+#suggestions{
+  margin-left: 8%;
+  margin-top: 30px;
+  display: none;
+  background-color: rejd;
+  grid-gap: 10px;
+  /*grid-template-columns: repeat(20,auto);*/
+  
+}
