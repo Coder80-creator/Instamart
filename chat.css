@@ -25,7 +25,7 @@ body{
   .instamart_logo{
     background-color: rgba(22,22,22,255);
    /*background-color: rgba(15,17,31,255);*/
-   background-image: url("../dark_logo.png");
+   background-image: url("https://github.com/Coder80-creator/Instamart/blob/main/src/dark_logo.png?raw=true");
   }
   .power-switch .button:after{
     background: radial-gradient(circle closest-side, var(--color-invert), transparent);
@@ -53,7 +53,7 @@ body{
 @media (prefers-color-scheme: light) {
   .instamart_logo{
     background-color: rgba(255,255,255,255);
-   background-image: url("../light_logo.png");
+   background-image: url("https://github.com/Coder80-creator/Instamart/blob/main/src/light_logo.png?raw=true");
   }
   *{
     color: black
@@ -71,12 +71,12 @@ body{
 }
 .light{
    background-color: rgba(255,255,255,255);
-   background-image: url("../light_logo.png");
+   background-image: url("https://github.com/Coder80-creator/Instamart/blob/main/src/light_logo.png?raw=true");
 }
 .dark{
    background-color: rgba(22,22,22,255);
    /*background-color: rgba(15,17,31,255);*/
-   background-image: url("../dark_logo.png");
+   background-image: url("https://github.com/Coder80-creator/Instamart/blob/main/src/dark_logo.png?raw=true");
 }
 .chat{
   background-image: url("https://github.com/Coder80-creator/Instamart/blob/main/logo/chat.png?raw=true");
