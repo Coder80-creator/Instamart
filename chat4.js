@@ -172,6 +172,6 @@ function set_cookie(mode,search){
   
   document.cookie = `mode=${mode}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
   document.cookie = `search=${search}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
-  window.location.replace=`http://instamart.liveblog365.com/v4/search.html?mode=${mode}&search=${search}`;
+  window.location.href=`http://instamart.liveblog365.com/v4/search.html?mode=${mode}&search=${search}`;
   
 }
