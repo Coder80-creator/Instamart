@@ -105,7 +105,7 @@ async function word_count(){
     temp=w.replace(len.toLowerCase(),`<span>${len}</span>`);
     word.innerHTML=temp;
     word.onclick=function() {
-      alert(77);
+      //alert(77);
     set_cookie(mode_,w);
     };
     let parent=document.querySelector("#suggestions");
@@ -168,7 +168,7 @@ async function get_sugg(data) {
 
 
 function set_cookie(mode,search){
-  alert("yes");
+  //alert("yes");
   
   document.cookie = `mode=${mode}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
   document.cookie = `search=${search}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
@@ -177,7 +177,7 @@ function set_cookie(mode,search){
 }
 
 function refreshPage() {
-            location.reload();
+            window.location.reload();
         }
 
         // Add an event listener to detect when the page regains focus
