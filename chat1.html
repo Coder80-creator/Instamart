@@ -63,7 +63,22 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/Coder80-creator/Instamart@main/chat.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/gh/Coder80-creator/Instamart@main/chat.js"></script>-->
+
+<script>
+  function generateCacheBuster() {
+    return Math.floor(Math.random() * 10000);
+  }
+
+  var cacheBuster = generateCacheBuster();
+  var scriptSrc = "https://cdn.jsdelivr.net/gh/Coder80-creator/Instamart@main/chat1.js?" + cacheBuster;
+
+  var scriptElement = document.createElement("script");
+  scriptElement.src = scriptSrc;
+
+  document.head.appendChild(scriptElement);
+</script>
+
 </body>
 
 </html>
