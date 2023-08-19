@@ -175,15 +175,3 @@ function set_cookie(mode,search){
   window.location.href=`http://instamart.liveblog365.com/v4/search.html?mode=${mode}&search=${search}`;
   
 }
-
-function refreshPage() {
-            //window.location.reload();
-            document.getElementById("checkbox").checked=true;
-            count=0;
-        }
-
-        // Add an event listener to detect when the page regains focus
-        window.onfocus = function () {
-          refreshPage();
-            //alert(79);
-        };
