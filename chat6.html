@@ -29,8 +29,14 @@
   width: 200px;
     }
   </style>
-  <img onclick="back()" id="back" style="top:0px; position:absolute;z-index:10;display:none;margin-left: 2%;margin-top: 17px;" src="../src/dark_back.png" width="25px"></img>
-  <img id="loading" style="display: none;" class='loading' src='../src/loading.gif' width='100px'></img>
+  <img onclick="back()" id="back" style="top:0px; position:absolute;z-index:10;display:none;margin-left: 2%;margin-top: 17px;" src="https://github.com/Coder80-creator/Instamart/blob/main/src/light_back.png?raw=true" width="25px"></img>
+  
+  <script>
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      document.getElementById("back").src="https://github.com/Coder80-creator/Instamart/blob/main/src/dark_back.png?raw=true";
+    }
+  </script>
+  <img id="loading" style="display: none;" class='loading' src='https://github.com/Coder80-creator/Instamart/blob/main/src/loading.gif?raw=' width='100px'></img>
   <div id="all">
   <div id="logo_insta" class="instamart_logo"></div>
   <!--<div class="main_name">
