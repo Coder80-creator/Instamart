@@ -168,7 +168,7 @@ async function get_sugg(data) {
 
 
 function set_cookie(mode,search){
-  alert("yes");
+  //alert("yes");
   
   document.cookie = `mode=${mode}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
   document.cookie = `search=${search}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
