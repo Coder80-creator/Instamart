@@ -75,6 +75,22 @@ function clear_prompt(){
 
 async function word_count(){
   len=document.getElementById("prompt").value;
+  mode_ = document.getElementById("checkbox").checked;
+  if (mode_) {
+    mode_ = "on";
+  } else {
+    mode_ = "off";
+  }
+  
+  //alert(len);
+  if(len.includes("\n")){
+    len = len.replace(/\n/g, "");
+    document.getElementById("prompt").value=len.replace(/\n/g, "");
+  set_cookie(mode_,len);
+  
+  }
+  //alert(`n: ${len}`);
+  
   document.getElementById("word_count").innerText=`${len.length}/200`;
   //document.getElementById("prompt").value=len.slice(0,10);
   if(len.length>4 && count ==1){
@@ -88,6 +104,10 @@ async function word_count(){
     let word=document.createElement("p");
     temp=w.replace(len.toLowerCase(),`<span>${len}</span>`);
     word.innerHTML=temp;
+    word.onclick=function() {
+      alert(77);
+    set_cookie(mode_,w);
+    };
     let parent=document.querySelector("#suggestions");
     parent.appendChild(word);
     }
@@ -98,6 +118,8 @@ async function word_count(){
   }
 }
 document.getElementById("checkbox").checked=true;
+
+
 
 
 count=0;
@@ -143,3 +165,23 @@ async function get_sugg(data) {
         throw error;
     }
 }
+
+
+function set_cookie(mode,search){
+  alert("yes");
+  
+  document.cookie = `mode=${mode}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
+  document.cookie = `search=${search}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
+  window.location.href=`http://instamart.liveblog365.com/v4/search.html?mode=${mode}&search=${search}`;
+  
+}
+
+function refreshPage() {
+            location.reload();
+        }
+
+        // Add an event listener to detect when the page regains focus
+        window.onfocus = function () {
+          refreshPage();
+            //alert(79);
+        };
