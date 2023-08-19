@@ -12,6 +12,24 @@
 </head>
 
 <body>
+  <style>
+    #result{
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0px;
+      z-index: 5;
+      display: none;
+    }
+    .loading{
+      display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60%;
+  width: 200px;
+    }
+  </style>
+  <div id="all">
   <div id="logo_insta" class="instamart_logo"></div>
   <!--<div class="main_name">
     <p>Instamart</p>
@@ -62,10 +80,14 @@
   </div>
 
 </div>
+</div>
+<iframe id="result" src="" frameborder="0"></iframe>
 
-<!--<script src="https://cdn.jsdelivr.net/gh/Coder80-creator/Instamart@main/chat.js"></script>-->
-
+<!--<script src="https://cdn.jsdelivr.net/gh/Coder80-creator/Instamart@main/chat.js"></script>->
+<script src="chat.js"></script>-->
 <script>
+
+/*
   function generateCacheBuster() {
     return Math.floor(Math.random() * 10000);
   }
@@ -77,6 +99,208 @@
   scriptElement.src = scriptSrc;
 
   document.head.appendChild(scriptElement);
+  */
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // dark mode
+  theme="dark";
+  font_color="white";
+  background_color="rgb(22,22,22)";
+}else{
+  theme="light";
+  font_color="black";
+}
+
+
+words = ['Smart search ON: \n"Hey dear Luna Suggest me some Shirts for wearing to College"','Smart search ON:\n"Help me to decorate my Walls"','Smart search ON:\n"Hey Luna help me to select sarees for wedding"']
+    var part,
+    i = 0,
+    offset = 0,
+    len = words.length,
+    forwards = true,
+    skip_count = 0,
+    skip_delay = 15;
+    speed = 50;
+    mode=true;
+    outer_id="";
+var wordflick = function () {
+  //alert(speed);
+  inter_id=setInterval(function () {
+    if(!mode){
+      return;
+    }
+    if (forwards) {
+      if (offset >= words[i].length) {
+        ++skip_count;
+        if (skip_count == skip_delay) {
+          forwards = false;
+          skip_count = 0;
+        }
+      }
+    }
+    else {
+      if (offset == 0) {
+        forwards = true;
+        i++;
+        offset = 0;
+        if (i >= len) {
+          i = 0;
+        }
+      }
+    }
+    part = words[i].substr(0, offset);
+    if (skip_count == 0) {
+      if (forwards) {
+        offset++;
+      }
+      else {
+        offset--;
+      }
+    }
+    $('.prompt').text(part);
+    return;
+  },speed);
+  outer_id=inter_id;
+};
+
+$(document).ready(function () {
+  wordflick();
+});
+press_count=true;
+function clear_prompt(){
+  if(press_count){
+    //val=document.getElementById("prompt").value;
+  document.getElementById("prompt").value="";
+  document.getElementById("prompt").style.color=font_color;
+  press_count=false;
+  }
+}
+
+async function word_count(){
+  len=document.getElementById("prompt").value;
+  mode_ = document.getElementById("checkbox").checked;
+  if (mode_) {
+    mode_ = "on";
+  } else {
+    mode_ = "off";
+  }
+  
+  //alert(len);
+  if(len.includes("\n")){
+    len = len.replace(/\n/g, "");
+    document.getElementById("prompt").value=len.replace(/\n/g, "");
+  set_cookie(mode_,len);
+  
+  }
+  //alert(`n: ${len}`);
+  
+  document.getElementById("word_count").innerText=`${len.length}/200`;
+  //document.getElementById("prompt").value=len.slice(0,10);
+  if(len.length>4 && count ==1){
+    var res=await get_sugg({"words":len});
+    console.log(res);
+    document.getElementById("suggestions").innerHTML="";
+    document.getElementById("product_404").style.display="none";
+    document.getElementById("suggestions").style.display="block";
+    res.forEach(add_elem);
+    function add_elem(w){
+    let word=document.createElement("p");
+    temp=w.replace(len.toLowerCase(),`<span>${len}</span>`);
+    word.innerHTML=temp;
+    word.onclick=function() {
+      alert(77);
+    set_cookie(mode_,w);
+    };
+    let parent=document.querySelector("#suggestions");
+    parent.appendChild(word);
+    }
+    
+  }else{
+    document.getElementById("product_404").style.display="block";
+    document.getElementById("suggestions").style.display="hidden";
+  }
+}
+document.getElementById("checkbox").checked=true;
+
+
+
+
+count=0;
+function off(){
+  clearInterval(outer_id);
+  mode=false;
+  if (count==0) {
+    words=['Smart search OFF:\n"Casual Shirts for men"','Smart search OFF:\n"Kurtis for women latest"'];
+    count+=1;
+    speed = 60;
+  }else{
+    words = ['Smart search ON: \n"Hey dear Luna Suggest me some Shirts for wearing to College"','Smart search ON:\n"Help me to decorate my Walls"','Smart search ON:\n"Hey Luna help me to select sarees for wedding"'];
+    count-=1;
+    speed = 50;
+  }
+  
+  part="",
+  i = 0,
+    offset = 0,
+    len = words.length,
+    forwards = true,
+    skip_count = 0,
+    skip_delay = 15,
+  mode=true;
+  wordflick(speed);
+}
+
+
+async function get_sugg(data) {
+    try {
+        const response = await fetch('https://api.gokulkrishnan13.repl.co/amazon_sugg', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+        
+        const responseData = await response.json();
+        return responseData["words"];
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
+//document.getElementById("all").innerHTML="<img class='loading' src='../src/loading.gif' width='100px'></img>";
+const code_=document.getElementById("all").innerHTML;
+window.addEventListener('popstate', function(event) {
+            // Show an alert when the back button is clicked
+            //alert("Back button was clicked!");
+    document.getElementById("all").innerHTML=code_;
+    document.getElementById("result").style.display="none";
+            // Prevent the browser's default back navigation (optional)
+            history.pushState(null, null, location.href);
+        });
+        
+        // Add a dummy entry to the browser's history so that popstate event will be fired
+        history.pushState(null, null, location.href);
+
+function set_cookie(mode,search){
+  //alert("yes");
+  
+  document.cookie = `mode=${mode}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
+  document.cookie = `search=${search}; expires=Thu, 18 Dec 2025 12:00:00 UTC,domain=localhost`;
+  //window.location.replace=`http://instamart.liveblog365.com/v4/search.html?mode=${mode}&search=${search}`;
+  //document.getElementById("result").src=`http://instamart.liveblog365.com/v4/search.html?mode=${mode}&search=${search}`;
+  document.getElementById("result").src=`../search.html?mode=${mode}&search=${search}`;
+  
+  document.getElementById("all").innerHTML="<img class='loading' src='../src/loading.gif' width='100px'></img>";
+  document.getElementById("result").onload=function() {
+    document.getElementById("result").style.display="block";
+  }
+  
+}
+
+  
+  
+  
 </script>
 
 </body>
