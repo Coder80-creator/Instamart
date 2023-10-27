@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Name - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:whitesmoke;
+        }
+
+        header {
+            background-color: #0c550c;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative; /* Add this */
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+        }
+
+        nav {
+            background-color:#0c550c;
+            color: #fff;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        li a:hover{
+            background-color:skyblue ;
+        }
+
+        .section-content {
+            background-color: gray;
+            letter-spacing: 2px;
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
+
+        .download-button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            align-self: center;
+        }
+
+        .download-button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>A.MOHAN KARTHICK</h1>
+            <p>Student of Government Arts College </p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="section-content">
+            <h2>About Me</h2>
+            <p> My name is Mohan karthick,I am basically an creative designer and eaisly mingle with the groupof people and work better than the.I have more intreset in designing of UI\UX for apps and website's. </p>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-content">
+            <h2>Education</h2>
+            <p> Government Arts College, Coimbatore(Autonomous)</p>
+            <p>B.Sc.Computer science</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-content">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML, CSS, JAVASCRIPT</li>
+                <li> Python</li>
+                <li> Problem solving</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-content">
+            <h2>Projects</h2>
+            <p> Title 1 : Sign Language recogonition in python </p>
+            <p> Title 2 : UI\UX design for the our Own E-commerece app Instamart. </p>
+            <p> Duration : 6 months</p>
+            <p> <b><u>Technologies / Tools Used: </u></b></p>
+            <ul>
+                <li> HTML,CSS,JAVASCRIPT</li>
+                <li> MYSQL</li>
+                <li> PHP</li>
+                <li>python</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="resume">
+    
+        <div class="section-content">
+            
+            <h2>Resume</h2>
+            <a href="https://drive.google.com/file/d/126n0BH9cMisI700G-ESGnCl2xezIOzWk/view?usp=drivesdk "  target="_blank" class="download-button">Download CV</a>
+        
+        </div>
+        
+    </section>
+
+    <footer>
+        <p>&copy; 2023 A.Mohan karthick </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling to section when clicking on navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
